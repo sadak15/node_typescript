@@ -1,10 +1,13 @@
 import express from "express";
-import goodbyeRoutes from "./routes/goodbye.routes";
+import userRoutes from "./routes/user.routes";
+import productRoutes from "./routes/product.routes";
 
 const app = express();
 const PORT = 3000;
 
-app.use("/", goodbyeRoutes);
+app.use(express.json());
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
